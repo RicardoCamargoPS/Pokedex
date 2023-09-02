@@ -1,12 +1,77 @@
-.pokemon {  
+.pokemonList{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.normal {
+    background-color: #a8a878
+}
+.fire {
+    background-color: #f08030
+}
+.fighting {
+    background-color: #c03028
+}
+.water {
+    background-color: #6890f0
+}
+.flying {
+    background-color: #a890f0
+}
+.grass {
+    background-color: #78c850
+}
+.poison {
+    background-color: #a040a0
+}
+.electric {
+    background-color: #f8d030
+}
+.ground {
+    background-color: #e0c068
+}
+.psychic {
+    background-color: #f85888
+}
+.rock {
+    background-color: #b8a038
+}
+.ice {
+    background-color: #98d8d8
+}
+.bug {
+    background-color: #a8b820
+}
+.dragon {
+    background-color: #7038f8
+}
+.ghost {
+    background-color: #705898
+}
+.dark {
+    background-color: #705848
+}
+.steel {
+    background-color: #b8b8d0
+}
+.fairy {
+    background-color: #ee99ac
+}
+.unknown {
+    background-color: #68a090
+}
+
+.pokemon { 
     display: flex; 
     flex-direction: column;
     margin: .5rem;
     padding: 1rem;    
-    border-radius: 1rem;
-    background-color: #49d0b0;
-    color: #fff;   
+    border-radius: 1rem;    
 }
+
 .pokemon .number {
     color: black;
     opacity: .4;
@@ -14,8 +79,8 @@
     font-size: .825rem;
 
 }
-.pokemon .nome {
-    color: #fff;
+.pokemon .name {  
+    text-transform: capitalize;
     margin-bottom: .25rem;
 }
 
@@ -26,18 +91,21 @@
     justify-content: space-between;
 }
 .pokemon .detail .types{
-    padding: 0;
+    color: #fff;
     margin: 0;
-    list-style: none;
+    padding: 0;
+    list-style: none; 
+    text-align: center;  
+     
 }
 
-.pokemon .detail .types .slot{
-    background-color: #61e1ca;
-    color: #fff;   
+.pokemon .detail .types .type{     
     padding: .25rem .5rem;
-    margin: .25rem 0;
-    font-size: .625rem;
-    border-radius: 1rem;
+    margin: .25rem 0;    
+    font-size: 1rem;   
+    border-radius: 1rem;   
+   filter: brightness(1.2);
+    
 }
 .pokemon .detail img {   
     max-width: 100%;
