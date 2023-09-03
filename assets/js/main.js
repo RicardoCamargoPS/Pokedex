@@ -1,6 +1,7 @@
 const list = document.getElementById('listPokemons')
 const btnLoadMore = document.getElementById('btnLoadMore')
 
+
 const maxRecord = 151
 const limit = 10
 let offset = 0
@@ -22,10 +23,11 @@ function loadPokemonitens(offset, limit) {
   
         const button = document.createElement('button');
         button.type = 'button';
-        button.classList.add('btnDetail');
+        button.classList.add('btnDetail');        
   
         button.innerHTML = `          
           <div class="detail">
+           
             <ol class="types">
               ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
             </ol>
@@ -48,28 +50,23 @@ function loadPokemonitens(offset, limit) {
     });
   }
 function abrirDetalhesPokemon(pokemon) {
-    const url = 'pokeDetail.html';
-    const larguraDaJanela = 600;
-    const alturaDaJanela = 400;
-    // Obtém as dimensões da tela
-    const larguraDaTela = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    const alturaDaTela = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  const dialog = document.getElementById('pokemonDetails');
+  const dialogContent = dialog.querySelector('.dialog-content'); // Substitua '.dialog-content' pelo seletor apropriado para o conteúdo do diálogo
 
-    // Calcula as coordenadas x e y para centralizar a janela
-    const posX = (larguraDaTela - larguraDaJanela) / 2;
-    const posY = (alturaDaTela - alturaDaJanela) / 2;
+  // Preencha o conteúdo do diálogo com os detalhes do Pokémon
+  dialogContent.innerHTML = `
+    <h2>${pokemon.name}</h2>
+    <p>Number: #${pokemon.number}</p>
+    <p>Types:</p>
+    <ul>
+      ${pokemon.types.map(type => `<li>${type}</li>`).join('')}
+    </ul>
+    <img src="${pokemon.photo}" alt="${pokemon.name}">
+  `;
 
-    // Define as configurações da janela
-
-    const configuracoesPopup = `width=${larguraDaJanela},height=${alturaDaJanela},toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,titlebar=no,left=${posX},top=${posY}`;
-
-    // Abre a janela popup centralizada
-    const popup = window.open(url, 'NomeDaJanela', configuracoesPopup);
-    
-    // Verifica se a janela popup foi bloqueada pelo navegador
-    if (popup === null) {
-      alert('A janela popup foi bloqueada pelo navegador. Por favor, habilite pop-ups.');
-    }
+  // Abra o diálogo
+  dialog.showModal();
+   
 }
 
 loadPokemonitens(offset, limit)

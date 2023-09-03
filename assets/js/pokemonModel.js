@@ -3,6 +3,6 @@ class Pokemon {
     name;
     type;
     types = [];
-    photo;
+    photo;     
 
 }

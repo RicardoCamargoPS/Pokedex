@@ -71,7 +71,7 @@
     cursor: pointer; /* Cursor de mão ao passar o mouse */
   }
 
-.pokemon { 
+  .pokemon { 
     display: flex; 
     flex-direction: column;
     margin: .5rem;
@@ -130,6 +130,7 @@
     padding: 1rem;
 }
 
+
 .pagination button{
     padding: .25rem .5rem;
     color: white;
@@ -137,6 +138,42 @@
     border: none;
     border-radius: .5rem;
     font-size: 1rem;   
+}
+
+/* Estilizando o elemento <dialog> */
+dialog#pokemonDetails {
+  background-color: rgb(109, 11, 11);
+  border: 2px solid #04092a;
+  border-radius: 10px;
+  padding: 20px;
+  width: 40%; /* Ajuste a largura conforme necessário */
+  
+}
+
+/* Estilizando o conteúdo dentro do <dialog> */
+dialog#pokemonDetails .dialog-content {
+  text-align: center;
+}
+pokemonDetails .dialog-content #pokemonImage{
+    max-width: 100%;
+    height: 80px;
+    align-items: self-end;
+}
+
+/* Estilizando o botão de fechar dentro do <dialog> */
+dialog#pokemonDetails #closeDialog {
+  background-color: #6c79db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Estilizando o botão de fechar ao passar o mouse */
+dialog#pokemonDetails #closeDialog:hover {
+  background-color: #4b569a;
 }
 
 
