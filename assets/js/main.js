@@ -47,20 +47,30 @@ function loadPokemonitens(offset, limit) {
       });
     });
   }
-  function abrirDetalhesPokemon(pokemon) {
+function abrirDetalhesPokemon(pokemon) {
     const url = 'pokeDetail.html';
+    const larguraDaJanela = 600;
+    const alturaDaJanela = 400;
+    // Obtém as dimensões da tela
+    const larguraDaTela = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    const alturaDaTela = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-    // Configurações da janela popup (largura, altura, etc.)
-    const configuracoesPopup = 'width=300,height=400';
+    // Calcula as coordenadas x e y para centralizar a janela
+    const posX = (larguraDaTela - larguraDaJanela) / 2;
+    const posY = (alturaDaTela - alturaDaJanela) / 2;
 
-    // Abre a janela popup e carrega o arquivo HTML de detalhes
-    const popup = window.open(url, 'Popup', configuracoesPopup);
+    // Define as configurações da janela
+
+    const configuracoesPopup = `width=${larguraDaJanela},height=${alturaDaJanela},toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,titlebar=no,left=${posX},top=${posY}`;
+
+    // Abre a janela popup centralizada
+    const popup = window.open(url, 'NomeDaJanela', configuracoesPopup);
     
     // Verifica se a janela popup foi bloqueada pelo navegador
     if (popup === null) {
       alert('A janela popup foi bloqueada pelo navegador. Por favor, habilite pop-ups.');
     }
-  }
+}
 
 loadPokemonitens(offset, limit)
 
@@ -80,14 +90,6 @@ btnLoadMore.addEventListener('click', () =>{
     }
 
 })
-
-
-const btnDetail = document.getElementById('btnDetail')
-
-btnDetail.addEventListener('click', function () {
-    // URL do arquivo HTML de detalhes do Pokémon
-    
-  });
 
 
 
